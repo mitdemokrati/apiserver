@@ -1,0 +1,47 @@
+{
+  "name": "mitdemokratiservernew",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm-run-all -p watch:build watch:server",
+    "build": "cross-env NODE_ENV=production parcel build src/main.ts --target node --bundle-node-modules",
+    "server": "cross-env NODE_ENV=production node dist/index.js",
+    "test": "jest --coverage",
+    "test:ci": "jest --ci --bail --silent --passWithNoTests --detectOpenHandles",
+    "lint": "tslint src/**/*.ts --fix",
+    "git-pre-push": "npm-run-all -p build lint test:ci",
+    "watch:build": "parcel watch src/main.ts --target node --bundle-node-modules",
+    "watch:server": "nodemon dist/index.js",
+    "watch:test": "jest --watchAll"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run git-pre-push"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "config": "^3.1.0",
+    "koa": "^2.7.0",
+    "mongoose": "^5.5.4",
+    "node-cache": "^4.2.0",
+    "raven": "^2.6.4",
+    "utilities": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@types/config": "0.0.34",
+    "@types/jest": "^24.0.11",
+    "@types/koa": "^2.0.48",
+    "@types/mongoose": "^5.3.27",
+    "@types/node-cache": "^4.1.3",
+    "cross-env": "^5.2.0",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.3",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}

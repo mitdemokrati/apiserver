@@ -1,0 +1,9 @@
+{
+    "server": {
+        "port": 80,
+        "monitoringToken": "TEST_TOKEN"
+    },
+    "endpoints": {
+        "latestVoteId": "http://localhost/latestVoteId"
+    }
+}

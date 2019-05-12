@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mitdemokratiserver:
+    build: .      
+    command: 'npm run server'
+    working_dir: /app/
+    user: node
+    ports:
+      - 80:80
+    volumes:
+      - ./src/:/app/src/

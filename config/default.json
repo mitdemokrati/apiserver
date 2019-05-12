@@ -1,0 +1,9 @@
+{
+    "server": {
+        "port": 80,
+        "monitoringToken": ""
+    },
+    "endpoints": {
+        "latestVoteId": "https://oda.ft.dk/api/Afstemning?$expand=M%C3%B8de&$orderby=M%C3%B8de/dato%20desc,id%20desc&$top=1&$select=id,M%C3%B8de/dato&$filter=typeid eq 1"
+    }
+}
