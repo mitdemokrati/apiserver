@@ -1,33 +1,26 @@
-FROM node:10.15-alpine as build
+## Builder
+FROM node:12.2-alpine as builder
 
-WORKDIR /appbuild/
+COPY . /app
 
-ADD package*.json /appbuild/
+WORKDIR /app
 
-ENV NODE_ENV=production
+RUN apk add --no-cache --virtual build-dependencies python make g++
 
 RUN npm ci
 
-ADD src /appbuild/src
-ADD config /appbuild/config
-ADD ./jest.config.js /appbuild/
-ADD ./tsconfig.json /appbuild/
-ADD ./tslint.json /appbuild/
-
-RUN npm run lint
-RUN npm run test:ci
-RUN npm run build
+RUN npm run pipeline:ci
 
 RUN npm prune --production
 
-FROM node:10.15-alpine
+## Server
+FROM node:12.2-alpine
 
-WORKDIR /usr/src/service
+COPY --from=builder /app/node_modules node_modules
+COPY --from=builder /app/dist dist
 
-COPY --from=build /appbuild/package*.json .
-COPY --from=build /appbuild/node_modules node_modules
-COPY --from=build /appbuild/dist dist
+ENV NODE_ENV production
 
 USER node
 
-CMD ["npm", "run", "server"]
+CMD ["node", "/app/dist/server.js"]

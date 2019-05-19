@@ -1,6 +1,6 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 
-import logger from '/utilities/logger';
+import logger from '~/utilities/logger';
 
 export const get = async (url: string, options?: AxiosRequestConfig): Promise<any> => {
     const axiosConfig = {

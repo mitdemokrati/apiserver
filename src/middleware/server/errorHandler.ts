@@ -1,4 +1,4 @@
-import Log from '/utilities/logger';
+import Log from '~/utilities/logger';
 
 export default async (ctx, next) => {
     try {

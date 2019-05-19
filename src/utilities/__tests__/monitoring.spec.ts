@@ -20,7 +20,7 @@ describe('the monitoring', () => {
     });
 
     it('starts Raven when token is set', () => {
-        const startMonitoring = require('/utilities/monitoring').default;
+        const startMonitoring = require('~/utilities/monitoring').default;
 
         startMonitoring();
 
@@ -31,7 +31,7 @@ describe('the monitoring', () => {
     });
 
     it('does not start Raven when token is missing', () => {
-        const startMonitoring = require('/utilities/monitoring').default;
+        const startMonitoring = require('~/utilities/monitoring').default;
 
         startMonitoring();
 

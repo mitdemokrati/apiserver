@@ -1,0 +1,8 @@
+{
+  "server": {
+      "monitoringToken": "MONITORING_TOKEN"
+  },
+  "database": {
+      "url": "DATABASE_URL"
+  }
+}

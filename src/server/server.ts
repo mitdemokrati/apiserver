@@ -1,8 +1,8 @@
 import config from 'config';
 import Koa from 'koa';
 
-import errorHandler from '/middleware/server/errorhandler';
-import {getLatestVoteId} from '/services/latestVoteIdService';
+import errorHandler from '~/middleware/server/errorHandler';
+import {getLatestVoteId} from '~/services/latestVoteIdService';
 
 const PORT = config.get('server.port') as string;
 

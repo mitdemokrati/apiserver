@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 
-import Log from '/utilities/logger';
+import Log from '~/utilities/logger';
 
 console.error = jest.fn();
 console.log = jest.fn();

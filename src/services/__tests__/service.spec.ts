@@ -1,10 +1,10 @@
 jest.mock('axios');
-jest.mock('/utilities/logger');
+jest.mock('~/utilities/logger');
 
 import axios from 'axios';
-import logger from '/utilities/logger';
+import logger from '~/utilities/logger';
 
-import {get, post} from '/services/service';
+import {get, post} from '~/services/service';
 
 const mockedAxios = axios as any;
 mockedAxios.mockResolvedValue();

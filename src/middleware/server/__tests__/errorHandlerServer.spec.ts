@@ -1,7 +1,7 @@
-jest.mock('/utilities/logger');
+jest.mock('~/utilities/logger');
 
-import errorHandler from '/middleware/server/errorHandler';
-import Log from '/utilities/logger';
+import errorHandler from '~/middleware/server/errorHandler';
+import Log from '~/utilities/logger';
 
 const mockedLog = Log as any;
 

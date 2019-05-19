@@ -1,8 +1,8 @@
 import config from 'config';
 
-import ILatestVoteId from '/interfaces/ILatestVoteId';
-import {get} from '/services/service';
-import Log from '/utilities/logger';
+import ILatestVoteId from '~/interfaces/ILatestVoteId';
+import {get} from '~/services/service';
+import Log from '~/utilities/logger';
 
 const latestVoteIdUrl = config.get('endpoints.latestVoteId') as string;
 

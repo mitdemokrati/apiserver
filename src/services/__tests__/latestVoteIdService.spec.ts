@@ -1,18 +1,18 @@
-jest.mock('/services/service', () => ({
+jest.mock('~/services/service', () => ({
     get: jest.fn()
         .mockReturnValueOnce(new Promise((resolve) => {resolve({value: [{Møde: Date.UTC, id: 1}]}); }))
         .mockReturnValueOnce(new Promise((resolve) => {resolve(); })),
 }));
 
-jest.mock('/utilities/logger', () => ({
+jest.mock('~/utilities/logger', () => ({
     error: jest.fn(),
 }));
 
 import config from 'config';
 
-import {getLatestVoteId} from '/services/latestVoteIdService';
-import {get} from '/services/service';
-import Log from '/utilities/logger';
+import {getLatestVoteId} from '~/services/latestVoteIdService';
+import {get} from '~/services/service';
+import Log from '~/utilities/logger';
 
 const expectedUrl = config.get('endpoints.latestVoteId') as string;
 
